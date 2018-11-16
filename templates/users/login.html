@@ -1,0 +1,31 @@
+{% extends "users/base.html" %}
+
+{% block head_content %}
+<title>Platzigram sign in</title>
+{% endblock%}
+
+{% block container %}
+    {% if form.errors %} <!--si error tiene valor dentra-->
+        <p class="alert alert-danger">
+            Your usarname and password didn't match, Please try again
+        </p> <!--{{error}}: manera de sacar el valor de error-->
+    {% endif%}
+
+    <form method="POST" action="{% url "users:login" %}"> 
+        {% csrf_token %} <!--TOKEN DE SEGURIDAD, protege atakes de csrf, incluye un input con un token unico por sesion, solo si hicistes get antes tendras este token-->
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Username" name="username" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="password" placeholder="Password" name="password" />
+        </div>
+
+		<!--primary: para q sea azul, block: para q ocupe todo el espacio, mt-5: margen superior-->
+        <button class="btn btn-primary btn-block mt-5" type="submit">Sign in!</button>
+
+        <p class="mt-4">Don't have an account yet? <a href="{% url "users:signup" %}">Sign up here.</a></p>
+
+    </form>
+{% endblock %}
