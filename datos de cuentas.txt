@@ -1,2 +1,5 @@
-username: giancarlo , Calin ----- GianMatty
-password: gian1234 , revolution --- revolution
+                   	Username     ---     Password
+                  	-------------------------------
+superusuario       	GianMatty	        	revolution
+			              jossy			          jossy123
+			              anthony		        	anthony
